@@ -34,4 +34,16 @@ class UsersTest < ApplicationSystemTestCase
     click_on 'Log in'
     assert_selector "h1", text: "Home#index"
   end
+
+  test 'sign up without email' do
+    visit new_user_registration_url
+    click_on 'Sign up'
+    assert_text "Email can't be blank"
+
+    fill_in 'Email', with: 'matt@gmail.com'
+    fill_in 'Password', with: 'password'
+    fill_in 'Password confirmation', with: 'password'
+    click_on 'Sign up'
+    assert_selector "h1", text: "Home#index"
+  end
 end

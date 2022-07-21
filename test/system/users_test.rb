@@ -18,6 +18,23 @@ class UsersTest < ApplicationSystemTestCase
     assert_selector 'a', text: 'Log in'
   end
 
+  test 'login with invalid password' do
+    User.create!(
+      email: 'matt@gmail.com',
+      password: 'password'
+    )
+
+    visit new_user_session_url
+    fill_in 'Email', with: 'matt@gmail.com'
+    click_on 'Log in'
+    assert_text 'Invalid Email or password.'
+
+    fill_in 'Email', with: 'matt@gmail.com'
+    fill_in 'Password', with: 'password'
+    click_on 'Log in'
+    assert_selector "h1", text: "Home#index"
+  end
+
   test "sign up and login" do
     visit root_url
     click_on 'Sign up'

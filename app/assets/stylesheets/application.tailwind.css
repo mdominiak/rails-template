@@ -11,3 +11,16 @@
 }
 
 */
+
+@layer components {
+  [type="email"],
+  [type="text"],
+  [type="password"],
+  [type="checkbox"] {
+    @apply bg-black;
+  }
+
+  [type="submit"] {
+    @apply py-2 px-3 border border-gray-500;
+  }
+}

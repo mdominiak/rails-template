@@ -13,19 +13,9 @@
 
   <body class="bg-black text-white">
     <%= render 'shared/navbar' %>
+    <%= render 'shared/alerts' %>
 
     <main class="container mx-auto mt-28 px-5 flex flex-wrap">
-      <% if flash[:notice] %>
-        <p class="w-full">
-          NOTICE: <%= flash[:notice] %>
-        </p>
-      <% end %>
-      <% if flash[:alert] %>
-        <p class="w-full">
-          ALERT: <%= flash[:alert] %>
-        </p>
-      <% end %>
-
       <%= yield %>
     </main>
   </body>

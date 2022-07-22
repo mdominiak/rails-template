@@ -1,0 +1,5 @@
+<% flash.each do |type, message| %>
+  <div class='p-2 mt-3 mx-2 rounded border <%= alert_class(type) %>'>
+    <%= message %>
+  </div>
+<% end %>

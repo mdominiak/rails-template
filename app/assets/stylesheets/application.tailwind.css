@@ -23,4 +23,12 @@
   [type="submit"] {
     @apply py-2 px-3 border border-gray-500;
   }
+
+  .alert-danger {
+    @apply bg-red-300 text-red-900 border-red-500;
+  }
+
+  .alert-success {
+    @apply bg-green-300 text-green-900 border-green-500;
+  }
 }

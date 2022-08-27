@@ -1,24 +1,11 @@
-# README
+# Rails Template
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The main goal is to provide Rails 7 application with working user registration and authentication (Devise) and TailwindCSS dark theme.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The rails template comes preconfigured with:
+* Rails 7 on Ruby 3
+* PostgreSQL
+* TailwindCSS dark theme
+* Devise with test coverage
+* MiniTest/FactoryBot
+* Dockerfile for quick and easy development environment setup

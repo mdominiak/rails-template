@@ -1,0 +1,20 @@
+version: '3'
+services:
+  web:
+    build: .
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - 3000:3000
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "secretpass"
+      POSTGRES_HOST: "db"
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: "secretpass"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+volumes:
+  db-data:

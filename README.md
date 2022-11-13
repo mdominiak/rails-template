@@ -11,4 +11,18 @@ The rails template comes preconfigured with:
 - MiniTest/FactoryBot
 - Dockerfile for quick and easy development environment setup
 
-TBC
+## Development
+
+Start `rails server`, `tailwindcss:watch` and PostgreSQL:
+
+```
+docker-compose up
+```
+
+## Testing
+
+Run unit tests:
+
+```
+docker-compose exec web bin/rails test
+```

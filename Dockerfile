@@ -1,10 +1,7 @@
-FROM ruby:3.1.2
+FROM ruby:3.1
 
-RUN gem install foreman --no-doc
-
-COPY Gemfile* /usr/src/app/
 WORKDIR /usr/src/app
+COPY Gemfile Gemfile.lock ./
 RUN bundle install
 
-COPY . /usr/src/app/
-CMD ["foreman", "start", "-f", "Procfile.dev"]
+CMD bin/rails server -b 0.0.0.0

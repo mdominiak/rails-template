@@ -32,15 +32,15 @@ development:
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user running Rails.
-  username: <%= ENV['POSTGRES_USER']  %>
+  #username: rails_auth
 
   # The password associated with the postgres role (username).
-  password: <%= ENV['POSTGRES_PASSWORD'] %>
+  #password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
   # domain sockets, so uncomment these lines.
-  host: <%= ENV['POSTGRES_HOST'] %>
+  #host: localhost
 
   # The TCP port the server listens on. Defaults to 5432.
   # If your server runs on a different port number, change accordingly.
@@ -61,9 +61,6 @@ development:
 test:
   <<: *default
   database: rails_auth_test
-  username: <%= ENV['POSTGRES_USER']  %>
-  password: <%= ENV['POSTGRES_PASSWORD'] %>
-  host: <%= ENV['POSTGRES_HOST'] %>
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -89,4 +86,4 @@ production:
   <<: *default
   database: rails_auth_production
   username: rails_auth
-  password: <%= ENV["RAILS_AUTH_DATABASE_PASSWORD"] %>
+  password: <%= ENV["JOURNAL_DATABASE_PASSWORD"] %>

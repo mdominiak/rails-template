@@ -26,3 +26,9 @@ Run unit tests:
 ```
 docker-compose exec web bin/rails test
 ```
+
+Run system tests:
+
+```
+docker-compose exec web bin/rails test:system
+```

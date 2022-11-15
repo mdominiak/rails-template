@@ -1,7 +1,7 @@
 require "application_system_test_case"
 
 class SignUpTest < ApplicationSystemTestCase
-  test "sign up and login" do
+  test 'sign up and log in' do
     visit root_url
     click_on 'Sign up'
     within 'main' do
@@ -10,10 +10,14 @@ class SignUpTest < ApplicationSystemTestCase
       fill_in 'Password confirmation', with: 'password'
       click_on 'Sign up'
     end
-    assert_selector "h1", text: "Home#index"
+    assert_text 'A message with a confirmation link has been sent to your email address.'
 
-    click_on 'Log out'
-    click_on 'Log in'
+    # confirm email address by following the confirmation link in the email
+    confirmation_url = ActionMailer::Base.deliveries.last.body.match(/href="(.*)"/)[1]
+    visit confirmation_url
+    assert_text 'Your email address has been successfully confirmed.'
+
+    # log in
     within 'main' do
       fill_in 'Email', with: 'matt@gmail.com'
       fill_in 'Password', with: 'password'
@@ -29,12 +33,13 @@ class SignUpTest < ApplicationSystemTestCase
     end
     assert_text "Email can't be blank"
 
+    # sign up with valid email
     within 'main' do
       fill_in 'Email', with: 'matt@gmail.com'
       fill_in 'Password', with: 'password'
       fill_in 'Password confirmation', with: 'password'
       click_on 'Sign up'
     end
-    assert_selector "h1", text: "Home#index"
+    assert_text 'A message with a confirmation link has been sent to your email address.'
   end
 end

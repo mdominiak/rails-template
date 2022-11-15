@@ -4,7 +4,8 @@ class LogInTest < ApplicationSystemTestCase
   def create_user
     User.create!(
       email: 'matt@gmail.com',
-      password: 'password'
+      password: 'password',
+      confirmed_at: 1.minute.ago
     )
   end
 
@@ -34,6 +35,7 @@ class LogInTest < ApplicationSystemTestCase
     end
     assert_text 'Invalid Email or password.'
 
+    # log in with valid password
     within 'main' do
       fill_in 'Email', with: 'matt@gmail.com'
       fill_in 'Password', with: 'password'

@@ -50,3 +50,19 @@ Run system tests:
 ```
 docker-compose exec web rails test:system
 ```
+
+## Deployment
+
+Build production docker image for deployment:
+
+```
+docker build -f production.Dockerfile -t rails-auth-production .
+```
+
+Test production image locally:
+
+```
+docker run -p 3000:3000 --name rails-auth-production --rm -e DATABASE_URL=postgres://rails_auth_production:secret@host.docker.internal/rails_auth_production rails-auth-production
+docker exec rails-auth-production rails db:schema:load
+ngrok http 3000
+```

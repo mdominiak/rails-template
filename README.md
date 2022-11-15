@@ -42,11 +42,11 @@ docker-compose exec web rails db:schema:load
 Run unit tests:
 
 ```
-docker-compose exec web bin/rails test
+docker-compose exec web rails test
 ```
 
 Run system tests:
 
 ```
-docker-compose exec web bin/rails test:system
+docker-compose exec web rails test:system
 ```

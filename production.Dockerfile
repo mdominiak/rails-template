@@ -10,6 +10,7 @@ COPY Gemfile Gemfile.lock ./
 RUN bundle install --without development test
 
 COPY . ./
-RUN rails assets:precompile
+RUN --mount=type=secret,id=production_key,dst=config/credentials/production.key \
+    rails assets:precompile
 
 CMD bin/rails server -b 0.0.0.0

@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+echo Building production image...
+set -eux
+
+docker build --secret id=production_key,src=config/credentials/production.key \
+             -f production.Dockerfile -t rails-auth-production .

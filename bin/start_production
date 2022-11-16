@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+echo Running production container...
+set -eux
+
+docker run -p 3001:3000 --name rails-auth-production --rm \
+           -v $PWD/config/credentials/production.key:/usr/src/app/config/credentials/production.key \
+           -e DATABASE_URL=postgres://rails_auth_production:secret@host.docker.internal/rails_auth_production \
+           -e ACTION_MAILER_HOST=$ACTION_MAILER_HOST \
+           rails-auth-production

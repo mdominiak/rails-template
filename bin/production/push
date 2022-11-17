@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+echo Pushing production image...
+set -eux
+
+docker tag rails-auth-production mdominiak/rails-auth
+docker push mdominiak/rails-auth

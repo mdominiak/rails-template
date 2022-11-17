@@ -43,7 +43,7 @@
   }
 
   .main--form {
-    @apply space-y-4;
+    @apply space-y-4 mb-5;
   }
 
   .alert-danger {

@@ -24,10 +24,10 @@
     <div>
       <%= f.submit "Sign up", class: 'btn-primary mt-1' %>
     </div>
-
-    <div class='text-sm'>
-      <span class='text-secondary'>Already have an account?</span>
-      <%= link_to "Log in", new_session_path(resource_name), class: 'link-primary' %>
-    </div>
   <% end %>
+
+  <div class='text-sm'>
+    <span class='text-secondary'>Already have an account?</span>
+    <%= link_to "Log in", new_session_path(resource_name), class: 'link-primary' %>
+  </div>
 </main>

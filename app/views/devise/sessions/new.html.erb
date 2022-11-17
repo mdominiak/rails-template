@@ -25,10 +25,10 @@
     <% end %>
 
     <%= f.submit "Log in", class: 'btn-primary' %>
-
-    <div class='text-sm'>
-      <span class='text-secondary'>Don't have an account yet?</span>
-      <%= link_to "Sign up", new_registration_path(resource_name), class: 'link-primary' %>
-    </div>
   <% end %>
+
+  <div class='text-sm'>
+    <span class='text-secondary'>Don't have an account yet?</span>
+    <%= link_to "Sign up", new_registration_path(resource_name), class: 'link-primary' %>
+  </div>
 </main>

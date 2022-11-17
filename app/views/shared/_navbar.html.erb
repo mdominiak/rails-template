@@ -4,6 +4,7 @@
 
     <div class='flex grow gap-x-3 justify-end'>
       <% if user_signed_in? %>
+        <%= link_to 'Account', edit_user_registration_path %>
         <%= button_to 'Log out', destroy_user_session_path, method: :delete %>
       <% else %>
         <%= link_to 'Log in', new_user_session_path, class: 'link-primary' %>

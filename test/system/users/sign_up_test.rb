@@ -13,8 +13,7 @@ class SignUpTest < ApplicationSystemTestCase
     assert_text 'A message with a confirmation link has been sent to your email address.'
 
     # confirm email address by following the confirmation link in the email
-    confirmation_url = ActionMailer::Base.deliveries.last.body.match(/href="(.*)"/)[1]
-    visit confirmation_url
+    visit url_from_email
     assert_text 'Your email address has been successfully confirmed.'
 
     # log in
